@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/63/1e/72/631e722abcca155e1628fb5142b6d4fc.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* تحديد الخط لكافة الصفحة */
+body, html {
+height: 100%;
+margin: 0;
+font-family: "Allura", sans-serif; /* هنا تم تغيير الخط إلى روبوتو */
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: transparent; /* Transparent background */
+  color: black;
+  float: left; /* Align the buttons horizontally */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  transition: border-bottom 0.3s ease;
+}
+
+.tablink:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+}
+
+.tablink.active {
+  border-bottom: 4px solid black; /* Adds a black border under the active tab */
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out; /* Smooth background image transition */ 
+}
+
+#Home {
+  background-image: url('https://i.pinimg.com/736x/7b/db/81/7bdb8184fca506bca54cc78dd32dc6b4.jpg');
+}
+
+#Contact {
+  background-image: url('https://i.pinimg.com/736x/6c/2c/20/6c2c209d4698e4498910f26a40dc88f1.jpg');
+  text-align: center; /* Centers the content horizontally */
+}
+
+#About {
+  background-image: url('https://i.pinimg.com/originals/ed/18/ed/ed18edff74770386d92ae9b8ad1ba5f8.gif');
+}
+
+/* Smooth scrolling effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Position the tab buttons at the top, centered horizontally */
+.tablinks-container {
+  position: fixed;
+  top: 0; /* Align at the top of the page */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Correct alignment to center */
+  display: flex;
+  justify-content: center; /* Horizontally center the buttons */
+  z-index: 10; /* Ensure the buttons are on top */
+  background-color: transparent; /* Transparent background */
+  width: 100%; /* Make sure the container takes the full width */
+  padding: 10px 0; /* Space between buttons */
+}
+
+/* Make the tab buttons appear in a row */
+.tablink {
+  margin: 0 10px; /* Add some spacing between the buttons */
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: DarkOrchid;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-twitter {
+  background: black;
+  color: white;
+}
+
+/* Align social media icons in a row and center them */
+.social-media-container {
+  display: flex;
+  justify-content: center; /* Centers the icons */
+  align-items: center; /* Vertically centers the icons */
+  margin-top: 20px; /* Adds some space from the top */
+}
+
+div {
+  border: 3px solid black;
+  padding: 5px;
+}
+
+.img1 {
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.small-text {
+  text-align: left; /* محاذاة النص لليمين */
+  font-size: 11px; /* حجم الخط صغير (يمكنك التعديل حسب الحاجة) */
+  direction: rtl; /* يضمن اتجاه النص من اليمين إلى اليسار للغة العربية */
+  margin-right: 0px; /* مسافة من اليمين (اختياري) */
+}
+
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.time-left {
+float: left;
+color: #999
+}
+</style>
+</head>
+<body>
+
+<!-- Home Tab -->
+<div id="Home" class="tabcontent">
+<div>
+<h1 style="text-align:center">Welcome to my personal website!</h1>
+<img class="img1" src="https://i.pinimg.com/736x/03/f3/88/03f3880b49902daddd7499f319b7368e.jpg" alt="Pineapple" width="170" height="170">
+<hr>
+<h2>I’m Atallah</h2> a passionate web developer dedicated<br> to creating modern and engaging<br> websites.
+On this site, you’ll find an overview of my projects, skills, and the services I offer.
+
+<h6>Get to know more about me on the<br> About Me page, or reach out to me<br> to turn your ideas into a digital reality.<br>
+Let’s start a journey of creativity together!</h6>
+<br>
+<br>
+<p class="small-text">.!Let me know if you’d like to personalize it further </p>
+</div>
+</div>
+
+<!-- Tab Buttons -->
+<div class="tablinks-container">
+<button class="tablink" onclick="openPage('Home', this, '')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('About', this, '')">About Me</button>
+<button class="tablink" onclick="openPage('Contact', this, '')">Social Media</button>
+</div>
+
+<!-- Contact Tab -->
+<div id="Contact" class="tabcontent">
+  <h3 style="text-align:center">Check out my Social Media Profile</h3>
+  <div class="social-media-container">
+    <a href="https://www.youtube.com/@Atta-lix" class="fa fa-youtube"></a>
+    <a href="https://www.instagram.com/ia_di8/?hl=ar" class="fa fa-instagram"></a>
+    <a href="https://snapchat.com/t/kJqbvNhK" class="fa fa-snapchat-ghost"></a>
+    <a href="https://x.com/ia_di8" class="fa fa-twitter"></a>
+  </div>
+</div>
+
+<!-- About Tab -->
+<div id="About" class="tabcontent">
+<h3 style="text-align:center"><strong>About Me</strong></h3>
+<div class="container">
+<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462554673_1106880737607093_3721034683687443943_n.jpg?stp=dst-jpg_s640x640&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MHIo0arSSFQQ7kNvgEQnQIv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QHOg-S-jQEz1lHX42REpogtq1BRpU4AYPVhZlwVQwtWCQ&oe=676FC42A" alt="Avatar" style="width:100%;">
+<br>
+<a href="https://www.instagram.com/ia_di8/?hl=ar">@ia_di8</a>
+<br>
+<br>
+<br>
+<p>
+Hi, I’m Attallah, a Computer Science student with a passion for web design. I’m focused on enhancing my skills to create innovative websites. My goal is to achieve financial stability andprofessional growth while embracing
+new opportunities.
+</p>
+
+<span class="time-left">PM 4:00</span><br>
+<span class="time-left">28-Nov-2024</span>
+</div>
+</div>
+
+<script>
+function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+    tablinks[i].classList.remove('active');
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+  elmnt.classList.add('active');
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
+
