@@ -1,261 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/63/1e/72/631e722abcca155e1628fb5142b6d4fc.jpg">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>متجر والدتي</title>
 <style>
-/* تحديد الخط لكافة الصفحة */
-body, html {
-height: 100%;
-margin: 0;
-font-family: "Allura", sans-serif; /* هنا تم تغيير الخط إلى روبوتو */
-}
+  body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #fafafa;
+    margin: 0;
+    padding-bottom: 100px; /* مساحة للزر الثابت */
+    color: #333;
+  }
+  /* ====== منيو علوي ====== */
+  nav {
+    background: #ff6f61;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  nav .logo { font-weight: bold; font-size: 20px; }
+  nav .menu {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  nav .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+  nav .menu a:hover {
+    background: #e85b50;
+  }
 
+  header {
+    background: #ff6f61;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  header h1 { margin: 0; }
+  header p { margin-top: 10px; }
 
-* {
-  box-sizing: border-box;
-}
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .card img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .price {
+    color: #ff6f61;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  .qty-box { margin-top: 10px; }
+  .qty-label { display: block; font-size: 13px; margin-bottom: 5px; color: #666; }
+  .qty {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .select-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    user-select: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    transition: 0.3s;
+  }
+  .select-label input { display: none; }
+  .select-label span {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  .select-label input:checked + span {
+    background: #ff6f61;
+    border-color: #ff6f61;
+  }
 
-/* Style tab links */
-.tablink {
-  background-color: transparent; /* Transparent background */
-  color: black;
-  float: left; /* Align the buttons horizontally */
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  transition: border-bottom 0.3s ease;
-}
-
-.tablink:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
-}
-
-.tablink.active {
-  border-bottom: 4px solid black; /* Adds a black border under the active tab */
-}
-
-/* Style the tab content */
-.tabcontent {
-  color: black;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 1s ease-in-out; /* Smooth background image transition */ 
-}
-
-#Home {
-  background-image: url('https://i.pinimg.com/736x/7b/db/81/7bdb8184fca506bca54cc78dd32dc6b4.jpg');
-}
-
-#Contact {
-  background-image: url('https://i.pinimg.com/736x/6c/2c/20/6c2c209d4698e4498910f26a40dc88f1.jpg');
-  text-align: center; /* Centers the content horizontally */
-}
-
-#About {
-  background-image: url('https://i.pinimg.com/originals/ed/18/ed/ed18edff74770386d92ae9b8ad1ba5f8.gif');
-}
-
-/* Smooth scrolling effect */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Position the tab buttons at the top, centered horizontally */
-.tablinks-container {
-  position: fixed;
-  top: 0; /* Align at the top of the page */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Correct alignment to center */
-  display: flex;
-  justify-content: center; /* Horizontally center the buttons */
-  z-index: 10; /* Ensure the buttons are on top */
-  background-color: transparent; /* Transparent background */
-  width: 100%; /* Make sure the container takes the full width */
-  padding: 10px 0; /* Space between buttons */
-}
-
-/* Make the tab buttons appear in a row */
-.tablink {
-  margin: 0 10px; /* Add some spacing between the buttons */
-}
-
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 70px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa:hover {
-  opacity: 0.7;
-}
-
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-
-.fa-instagram {
-  background: DarkOrchid;
-  color: white;
-}
-
-.fa-snapchat-ghost {
-  background: #fffc00;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-
-/* Align social media icons in a row and center them */
-.social-media-container {
-  display: flex;
-  justify-content: center; /* Centers the icons */
-  align-items: center; /* Vertically centers the icons */
-  margin-top: 20px; /* Adds some space from the top */
-}
-
-div {
-  border: 3px solid black;
-  padding: 5px;
-}
-
-.img1 {
-  float: right;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.small-text {
-  text-align: left; /* محاذاة النص لليمين */
-  font-size: 11px; /* حجم الخط صغير (يمكنك التعديل حسب الحاجة) */
-  direction: rtl; /* يضمن اتجاه النص من اليمين إلى اليسار للغة العربية */
-  margin-right: 0px; /* مسافة من اليمين (اختياري) */
-}
-
-
-.container {
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.darker {
-  border-color: #ccc;
-  background-color: #ddd;
-}
-
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.container img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-.time-left {
-float: left;
-color: #999
-}
+  /* زر ثابت أسفل الصفحة */
+  .btn-fixed {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6f61;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 999;
+  }
+  .btn-fixed:hover { background: #e85b50; }
 </style>
 </head>
 <body>
 
-<!-- Home Tab -->
-<div id="Home" class="tabcontent">
-<div>
-<h1 style="text-align:center">Welcome to my personal website!</h1>
-<img class="img1" src="https://i.pinimg.com/736x/03/f3/88/03f3880b49902daddd7499f319b7368e.jpg" alt="Pineapple" width="170" height="170">
-<hr>
-<h2>I’m Atallah</h2> a passionate web developer dedicated<br> to creating modern and engaging<br> websites.
-On this site, you’ll find an overview of my projects, skills, and the services I offer.
-
-<h6>Get to know more about me on the<br> About Me page, or reach out to me<br> to turn your ideas into a digital reality.<br>
-Let’s start a journey of creativity together!</h6>
-<br>
-<br>
-<p class="small-text">.!Let me know if you’d like to personalize it further </p>
-</div>
-</div>
-
-<!-- Tab Buttons -->
-<div class="tablinks-container">
-<button class="tablink" onclick="openPage('Home', this, '')" id="defaultOpen">Home</button>
-<button class="tablink" onclick="openPage('About', this, '')">About Me</button>
-<button class="tablink" onclick="openPage('Contact', this, '')">Social Media</button>
-</div>
-
-<!-- Contact Tab -->
-<div id="Contact" class="tabcontent">
-  <h3 style="text-align:center">Check out my Social Media Profile</h3>
-  <div class="social-media-container">
-    <a href="https://www.youtube.com/@Atta-lix" class="fa fa-youtube"></a>
-    <a href="https://www.instagram.com/ia_di8/?hl=ar" class="fa fa-instagram"></a>
-    <a href="https://snapchat.com/t/kJqbvNhK" class="fa fa-snapchat-ghost"></a>
-  
+<!-- منيو علوي -->
+<nav>
+  <div class="logo">🛍 Cap & Sheet</div>
+  <div class="menu">
+    <a href="#products">المنتجات</a>
+    <a href="https://wa.me/96551244053" target="_blank">💬 تصميم خاص</a>
   </div>
-</div>
+</nav>
 
-<!-- About Tab -->
-<div id="About" class="tabcontent">
-<h3 style="text-align:center"><strong>About Me</strong></h3>
-<div class="container">
-<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462554673_1106880737607093_3721034683687443943_n.jpg?stp=dst-jpg_s640x640&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MHIo0arSSFQQ7kNvgEQnQIv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QHOg-S-jQEz1lHX42REpogtq1BRpU4AYPVhZlwVQwtWCQ&oe=676FC42A" alt="Avatar" style="width:100%;">
-<br>
-<a href="https://www.instagram.com/ia_di8/?hl=ar">@ia_di8</a>
-<br>
-<br>
-<br>
-<p>
-Hi, I’m Atallah, a Computer Science student with a passion for web design. I’m focused on enhancing my skills to create innovative websites. My goal is to achieve financial stability andprofessional growth while embracing
-new opportunities.
-</p>
+<header>
+  <h1> Cap & Sheet</h1>
+  <p>اختر منتجاتك وأرسل الطلب عبر واتساب </p>
+</header>
 
-<span class="time-left">PM 4:00</span><br>
-<span class="time-left">28-Nov-2024</span>
-</div>
-</div>
+<section class="products" id="products">
+
+  <!-- منتج 1 -->
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p1"><span></span> اختر المنتج</label>
+    <img src="676.jpg" alt="شرشف مطرز">
+    <h3>شرشف مطرز</h3>
+    <p class="price">3 د.ك</p>
+    <div class="qty-box">
+      <label for="qty1" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty1">
+    </div>
+  </div>
+
+  <!-- منتج 2 -->
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p2"><span></span> اختر المنتج</label>
+    <img src="455.jpg" alt="شرشف فاخر">
+    <h3>شرشف </h3>
+    <p class="price">5 د.ك</p>
+    <div class="qty-box">
+      <label for="qty2" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty2">
+    </div>
+  </div>
+
+  <!-- منتج 3 -->
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p3"><span></span> اختر المنتج</label>
+    <img src="66n.jpg" alt="قبعة صوف">
+    <h3>قبعة صوف</h3>
+    <p class="price">4 د.ك</p>
+    <div class="qty-box">
+      <label for="qty3" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty3">
+    </div>
+  </div>
+
+  <!-- منتج 4 -->
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p4"><span></span> اختر المنتج</label>
+    <img src="211.jpg" alt="منتج جديد">
+    <h3>شرشف</h3>
+    <p class="price">6 د.ك</p>
+    <div class="qty-box">
+      <label for="qty4" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty4">
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p5"><span></span> اختر المنتج</label>
+    <img src="Pic/NEW2.jpg" alt="منتج 5">
+    <h3>منتج 5</h3>
+    <p class="price">7 د.ك</p>
+    <div class="qty-box">
+      <label for="qty5" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty5">
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <label class="select-label"><input type="checkbox" id="p6"><span></span> اختر المنتج</label>
+    <img src="Pic/NEW3.jpg" alt="منتج 6">
+    <h3>منتج 6</h3>
+    <p class="price">8 د.ك</p>
+    <div class="qty-box">
+      <label for="qty6" class="qty-label">الكمية</label>
+      <input type="number" min="1" value="1" class="qty" id="qty6">
+    </div>
+  </div>
+
+</section>
+
+<a href="#" class="btn-fixed" onclick="sendOrder()">📩 إرسال الطلب</a>
 
 <script>
-function openPage(pageName, elmnt, color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+function sendOrder() {
+  let phone = "96551244053";
+  let products = [];
+  for (let i=1;i<=6;i++){
+    let checkbox = document.getElementById("p"+i);
+    let qtyInput = document.getElementById("qty"+i);
+    if(checkbox.checked){
+      products.push(`${checkbox.parentElement.nextElementSibling.nextElementSibling.textContent} × ${qtyInput.value} (${qtyInput.parentElement.previousElementSibling.textContent})`);
+    }
   }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-    tablinks[i].classList.remove('active');
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-  elmnt.classList.add('active');
+  if(products.length===0){ alert("الرجاء اختيار منتج واحد على الأقل"); return; }
+  let message = "مرحباً، أود طلب المنتجات التالية:\n\n" + products.join("\n");
+  let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url,'_blank');
 }
-
-document.getElementById("defaultOpen").click();
 </script>
+
 </body>
 </html>
-
